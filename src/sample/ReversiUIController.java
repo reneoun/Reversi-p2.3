@@ -50,28 +50,7 @@ public class ReversiUIController implements Initializable {
     //Bron: https://stackoverflow.com/questions/50012463/how-can-i-click-a-gridpane-cell-and-have-it-perform-an-action
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        while (true) {
-            try {
-
-                Thread.sleep(500);
-                ArrayList<String> responses = serverConnection.getLastResponses();
-                String secLastResp = responses.get(responses.size() - 2);
-                String lastResp = responses.get(responses.size() - 1);
-
-                if (!gameFound) {
-                    System.out.println("running1");
-                    if (secLastResp.contains("MATCH") || lastResp.contains("MATCH")) {
-                        gameFound = true;
-                    }
-                } else {
-                    System.out.println("running2");
-
-                }
-
-            } catch (InterruptedException e){
-
-            }
-        }
+        makeABoard();
     }
 
     public void makeABoard(){
